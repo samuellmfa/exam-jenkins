@@ -19,5 +19,4 @@ spec:
             - containerPort: 8000
           env:
             - name: DATABASE_URI
-              value: "postgresql://{{ .Values.db_cast.username }}:{{ .Values.db_cast.password }}@{{ .Values.cast-db.database }}:5432/{{ .Values.db_cast.db_dev }}"
-
+              value: "postgresql://cast_db_username:cast_db_password@cast-db:5432/cast_db_dev"
