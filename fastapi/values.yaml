@@ -1,6 +1,16 @@
 # Default values for fastapi.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+image:
+  movie_service:
+    repository: samuellmfa/movie-service
+    pullPolicy: IfNotPresent
+    tag: ${DOCKER_TAG}
+
+  cast_service:
+    repository: samuellmfa/cast-service
+    pullPolicy: IfNotPresent
+    tag: ${DOCKER_TAG}
 
 replicaCount: 1
 db_cast:

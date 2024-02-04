@@ -4,6 +4,8 @@ metadata:
   name: cast-db
 spec:
   ports:
-    - port: 5432
+    - port: 8000
+      name: http
   selector:
     app: cast-db
+

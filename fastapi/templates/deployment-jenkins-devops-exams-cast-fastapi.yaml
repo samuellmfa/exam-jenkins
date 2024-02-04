@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cast-service
+  name: {{ .Release.Name }}-cast-service
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: cast-service
@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: cast-service
-          image: samuellmfa/cast-service:v.9.0
+          image: {{ .Values.image.cast_service.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 8000
           env:
             - name: DATABASE_URI
-              value: "postgresql://cast_db_username:cast_db_password@cast-db:5432/cast_db_dev"
+              value: "postgresql://{{ .Values.db_cast.username }}:{{ .Values.db_cast.password }}@{{ .Values.cast-db.database }}:5432/{{ .Values.db_cast.db_dev }}"
 
