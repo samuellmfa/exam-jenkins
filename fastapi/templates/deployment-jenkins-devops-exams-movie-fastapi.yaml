@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: movie-service
-          image: samuellmfa/movie-service:v.9.0
+          image: {{ .Values.image.movie_service.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 8000
           env:
