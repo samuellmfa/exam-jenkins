@@ -1,8 +1,8 @@
 pipeline {
 environment { // Declaration of environment variables
 DOCKER_ID = "samuellmfa" // replace this with your docker-id
-DOCKER_IMAGE_ONE = "cast-service"
-DOCKER_IMAGE_TWO = "movie-service"
+DOCKER_IMAGE_ONE = "cast_service"
+DOCKER_IMAGE_TWO = "movie_service"
 DOCKER_TAG = "v.${BUILD_ID}.0" // we will tag our images with the current build in order to increment the value by 1 with each new build
 }
 agent any // Jenkins will be able to select all available agents
@@ -12,11 +12,11 @@ stages {
                 script {
                 sh '''
                  cd cast-service    # check here
-                 docker rm -f cast-service
+                 docker rm -f cast_service
                  docker build -t $DOCKER_ID/$DOCKER_IMAGE_ONE:$DOCKER_TAG .
                  cd ..
                  cd movie-service
-                 docker rm -f movie-service
+                 docker rm -f movie_service
                  docker build -t $DOCKER_ID/$DOCKER_IMAGE_TWO:$DOCKER_TAG .
                 sleep 6
                 '''
@@ -27,8 +27,8 @@ stages {
                 steps {
                     script {
                     sh'''
-                    docker run -d -p 8001:8000 --name cast-service $DOCKER_ID/$DOCKER_IMAGE_ONE:$DOCKER_TAG
-                    docker run -d -p 8002:8000 --name movie-service $DOCKER_ID/$DOCKER_IMAGE_TWO:$DOCKER_TAG
+                    docker run -d -p 8001:8000 --name cast_service $DOCKER_ID/$DOCKER_IMAGE_ONE:$DOCKER_TAG
+                    docker run -d -p 8002:8000 --name movie_service $DOCKER_ID/$DOCKER_IMAGE_TWO:$DOCKER_TAG
                     sleep 10
                     '''
                     }

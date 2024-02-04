@@ -3,12 +3,12 @@
 # Declare variables to be passed into your templates.
 image:
   movie_service:
-    repository: samuellmfa/movie-service
+    repository: samuellmfa/movie_service
     pullPolicy: IfNotPresent
     tag: ${DOCKER_TAG}
 
   cast_service:
-    repository: samuellmfa/cast-service
+    repository: samuellmfa/cast_service
     pullPolicy: IfNotPresent
     tag: ${DOCKER_TAG}
 
