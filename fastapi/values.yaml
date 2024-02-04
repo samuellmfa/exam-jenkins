@@ -17,12 +17,11 @@ db_cast:
   username: cast_db_username
   password: cast_db_password
   db_dev: cast_db_dev
+
 db_movie:
   username: movie_db_username
   password: movie_db_password
   db_dev: movie_db_dev
-
-
 
 movie-db:
   username: movie_db_username
@@ -34,10 +33,9 @@ cast-db:
   password: cast_db_password
   database: cast_db_dev
 
-image:
+nginx:
   repository: nginx
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
