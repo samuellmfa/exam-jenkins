@@ -24,18 +24,5 @@ spec:
       volumes:
         - name: nginx-storage
           persistentVolumeClaim:
-            claimName: nginx-pvc
-
----
-
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nginx-pvc
-spec:
-  accessModes:
-    - ReadWriteMany  # Adjust based on your requirements
-  resources:
-    requests:
-      storage: 1Gi  # Adjust based on your requirements
+            claimName: nginx-pvc-new
 
