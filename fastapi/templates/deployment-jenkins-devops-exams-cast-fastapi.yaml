@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cast-service
-          image: samuellmfa/cast-service:v.22.0
+          image: samuellmfa/cast-service:v.9.0
           ports:
             - containerPort: 8000
           env:
