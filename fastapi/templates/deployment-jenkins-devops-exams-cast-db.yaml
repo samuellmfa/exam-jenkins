@@ -20,11 +20,11 @@ spec:
               name: postgres-data
           env:
             - name: POSTGRES_USER
-              value: {{ .Values.db_cast.username }}
+              value: "cast_db_username"
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.db_cast.password }}
+              value: "cast_db_password"
             - name: POSTGRES_DB
-              value: {{ .Values.db_cast.database }}
+              value: "cast_db_dev"
             - name: POSTGRES_HOST_AUTH_METHOD
               value: trust
       volumes:
