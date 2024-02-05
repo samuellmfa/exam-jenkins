@@ -154,6 +154,22 @@ stage('Deployment in QA'){
             }
 
         }
+    post {
+        always {
+            script {
+                // Your existing post-build actions here
 
+                // Add a post-build action to publish HTML report
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'path/to/your/html/report',
+                    reportFiles: 'index.html',
+                    reportName: 'HTML Report'
+                ])
+            }
+        }
+    }
 }
 }
