@@ -4,6 +4,6 @@ metadata:
   name: movie-db
 spec:
   ports:
-    - port:  8000
+    - port:  5432
   selector:
     app: movie-db
